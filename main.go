@@ -38,7 +38,7 @@ func main() {
 	}
 
 	// first argument is page orientation we can use P for portrait and L for landscape
-	pdf := gofpdf.New("P", "mm", "A5", "")
+	pdf := gofpdf.New("P", "mm", "A4", "")
 	pdf.AddPage()
 	pdf.SetFont("Arial", "B", 14)
 	width, _ := pdf.GetPageSize()
@@ -50,7 +50,7 @@ func main() {
 
 	pdf.MultiCell(width, 10, resultStr, "", "", false)
 
-	err := pdf.OutputFileAndClose(title + ".pdf")
+	err := pdf.OutputFileAndClose("../../Desktop/" + title + ".pdf")
 
 	if err == nil {
 		fmt.Println("PDF generated successfully")
